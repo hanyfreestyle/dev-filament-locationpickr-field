@@ -47,7 +47,7 @@ class LocationPickr extends Field
         'streetViewControl' => true,
         'rotateControl' => true,
         'fullscreenControl' => true,
-        'zoomControl' => false,
+        'zoomControl' => true,
     ];
 
     public function defaultLocation(array | Closure $defaultLocation): static
@@ -127,11 +127,11 @@ class LocationPickr extends Field
     /**
      * @throws JsonException
      */
-    public function getMapControls(): string
+    public function getMapControls(): array
     {
         $controls = $this->evaluate($this->mapControls) ?? [];
 
-        return json_encode(array_merge($this->controls, $controls), JSON_THROW_ON_ERROR);
+        return array_merge($this->controls, $controls);
     }
 
     public function height(string | Closure $height): static
