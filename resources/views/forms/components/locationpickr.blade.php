@@ -19,5 +19,4 @@
             style="height: {{ $getHeight() }}"
         ></div>
     </div>
- 
 </x-dynamic-component>
